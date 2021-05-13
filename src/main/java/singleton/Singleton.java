@@ -1,38 +1,26 @@
 package singleton;
 
 public class Singleton {
-	
-	//¶öººÊ½
-	private static final Singleton singleton =new Singleton();
 
-	private Singleton() {}	
-	public static Singleton getInstance(){
+	//é¥¿æ±‰å¼
+	private static final Singleton singleton = new Singleton();
+
+	private Singleton() {
+	}
+
+	public static Singleton getInstance() {
 		return singleton;
 	}
-	
-	//ÀÁººÊ½
-	public static Singleton singleton2=null;
-//    private Singleton() {}
 
-	public static synchronized Singleton getSingleton(){
-		
-		if(singleton2==null){
-			singleton2= new Singleton();
+	//æ‡’æ±‰å¼
+	public static Singleton singleton2 = null;
+
+	public static synchronized Singleton getSingleton() {
+
+		if (singleton2 == null) {
+			singleton2 = new Singleton();
 		}
 		return singleton2;
 	}
 
 }
-
-//1¡¢Ïß³Ì°²È«£º
-//¶öººÊ½ÌìÉú¾ÍÊÇÏß³Ì°²È«µÄ£¬¿ÉÒÔÖ±½ÓÓÃÓÚ¶àÏß³Ì¶ø²»»á³öÏÖÎÊÌâ£¬
-//ÀÁººÊ½±¾ÉíÊÇ·ÇÏß³Ì°²È«µÄ£¬ÎªÁËÊµÏÖÏß³Ì°²È«ÓĞ¼¸ÖÖĞ´·¨£¬·Ö±ğÊÇÉÏÃæµÄ1¡¢2¡¢3£¬ÕâÈıÖÖÊµÏÖÔÚ×ÊÔ´¼ÓÔØºÍĞÔÄÜ·½ÃæÓĞĞ©Çø±ğ¡£
-//
-//
-//2¡¢×ÊÔ´¼ÓÔØºÍĞÔÄÜ£º
-//¶öººÊ½ÔÚÀà´´½¨µÄÍ¬Ê±¾ÍÊµÀı»¯Ò»¸ö¾²Ì¬¶ÔÏó³öÀ´£¬²»¹ÜÖ®ºó»á²»»áÊ¹ÓÃÕâ¸öµ¥Àı£¬¶¼»áÕ¼¾İÒ»¶¨µÄÄÚ´æ£¬µ«ÊÇÏàÓ¦µÄ£¬ÔÚµÚÒ»´Îµ÷ÓÃÊ±ËÙ¶ÈÒ²»á¸ü¿ì£¬ÒòÎªÆä×ÊÔ´ÒÑ¾­³õÊ¼»¯Íê³É£¬
-//¶øÀÁººÊ½¹ËÃûË¼Òå£¬»áÑÓ³Ù¼ÓÔØ£¬ÔÚµÚÒ»´ÎÊ¹ÓÃ¸Ãµ¥ÀıµÄÊ±ºò²Å»áÊµÀı»¯¶ÔÏó³öÀ´£¬µÚÒ»´Îµ÷ÓÃÊ±Òª×ö³õÊ¼»¯£¬Èç¹ûÒª×öµÄ¹¤×÷±È½Ï¶à£¬ĞÔÄÜÉÏ»áÓĞĞ©ÑÓ³Ù£¬Ö®ºó¾ÍºÍ¶öººÊ½Ò»ÑùÁË¡£
-//ÖÁÓÚ1¡¢2¡¢3ÕâÈıÖÖÊµÏÖÓÖÓĞĞ©Çø±ğ£¬
-//µÚ1ÖÖ£¬ÔÚ·½·¨µ÷ÓÃÉÏ¼ÓÁËÍ¬²½£¬ËäÈ»Ïß³Ì°²È«ÁË£¬µ«ÊÇÃ¿´Î¶¼ÒªÍ¬²½£¬»áÓ°ÏìĞÔÄÜ£¬±Ï¾¹99%µÄÇé¿öÏÂÊÇ²»ĞèÒªÍ¬²½µÄ£¬
-//µÚ2ÖÖ£¬ÔÚgetInstanceÖĞ×öÁËÁ½´Înull¼ì²é£¬È·±£ÁËÖ»ÓĞµÚÒ»´Îµ÷ÓÃµ¥ÀıµÄÊ±ºò²Å»á×öÍ¬²½£¬ÕâÑùÒ²ÊÇÏß³Ì°²È«µÄ£¬Í¬Ê±±ÜÃâÁËÃ¿´Î¶¼Í¬²½µÄĞÔÄÜËğºÄ
-//µÚ3ÖÖ£¬ÀûÓÃÁËclassloaderµÄ»úÖÆÀ´±£Ö¤³õÊ¼»¯instanceÊ±Ö»ÓĞÒ»¸öÏß³Ì£¬ËùÒÔÒ²ÊÇÏß³Ì°²È«µÄ£¬Í¬Ê±Ã»ÓĞĞÔÄÜËğºÄ£¬ËùÒÔÒ»°ãÎÒÇãÏòÓÚÊ¹ÓÃÕâÒ»ÖÖ

@@ -2,7 +2,7 @@ package proxy;
 
 public class ProxyObject extends AbstractObject {
 	
-	RealObject realObject=new RealObject();
+	private RealObject realObject=new RealObject();
 
 	public void operation() {
 		

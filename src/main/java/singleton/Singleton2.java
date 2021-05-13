@@ -1,39 +1,24 @@
 package singleton;
 
-//ÀÁººÊ½
+/**
+ * å•ä¾‹åŒé‡é”
+ * @author zdchao
+ *
+ */
 public class Singleton2 {
 	
 	private Singleton2(){}
 	
-	private static Singleton2 single=null;
+	private static volatile Singleton2 instance=null;
 	
-	//·½Ê½1 £ºÌí¼ÓÍ¬²½synchronize
-//	private synchronized static Singleton2 getInstance(){
-//		if(single==null){
-//			single=new Singleton2();
-//		}
-//		return single;
-//	} 
-	
-	//·½Ê½2  Ë«ÖØ¼ì²éËø¶¨
-//	public static Singleton2 getInstance(){
-//		if(single==null){
-//			synchronized (Singleton2.class) {
-//				if(single==null){
-//					single=new Singleton2();
-//				}			
-//			}
-//		}
-//		return single;
-//	}
-	
-	//·½Ê½3  ¾²Ì¬ÄÚ²¿ÀàÊµÏÖ
-	private static class LazyHolder{
-		private static final Singleton2 INSTANCE=new Singleton2();
-	}
-	public static final Singleton2 getInstance(){
-		return LazyHolder.INSTANCE;
-	}
+	public static Singleton2 getInstance() {
+		if(instance==null) {
+			synchronized (instance) {
+				instance =new Singleton2();
+			}
+		}
+		return instance;
+	}	
 	
 
 }
